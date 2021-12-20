@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+    var app = new PIXI.Application(1200,800);
+        document.body.appendChild(app.view);
+        
+        var bg = new PIXI.Sprite.fromImage("res/bg.jpg");
+        app.stage.addChild(bg);
+        bg.scale.x = 1.3;
+        bg.scale.y = 1.3;
+        
+        var huojian = new PIXI.Sprite.fromImage("res/huojian.jpg");
+        app.stage.addChild(huojian);
+        huojian.scale.x = 0.2;
+        huojian.scale.y = 0.2;
+        huojian.y = 500;
+        huojian.x = 0;
+        
+        
+        
+        
+        var defen = new PIXI.Text("连击火箭，冲上宇宙！");
+
+        app.stage.addChild(defen);
+        defen.text = "点击水星，开始公转！";
+
+        
+        
+        huojian.interactive = true;
+
+
+        app.ticker.add(animate);
+        function animate() {
+        huojian.x += 5;;
+        if(huojian.x > 1200) {
+           huojian.x = 0;
+    }
+        
+
+}
+    </script>
+</body>
+</html>
